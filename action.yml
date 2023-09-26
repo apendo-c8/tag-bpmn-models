@@ -1,0 +1,25 @@
+name: "Tag BPMN models"
+description: 'GitHub Action for automated tagging of BPMN models'
+author: "Kristoffer Högberg"
+
+inputs:
+  source:
+    description: 'Camunda modeler project id'
+    required: true
+  tag:
+    description: 'Tag name'
+    required: true
+  client_id:
+    description: 'Camunda modeler api client id'
+    required: true
+  client_secret:
+    description: 'Camunda modeler api client secret'
+    required: true
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: 'activity'
+  color: 'green'
