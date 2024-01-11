@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __nccwpck_require__(2186);
 const axios_1 = __importDefault(__nccwpck_require__(8757));
 const TAG = (0, core_1.getInput)('tag');
-const SOURCE = (0, core_1.getInput)('source');
+const SOURCE = (0, core_1.getInput)('project_id');
 const MODELER_CLIENT_ID = (0, core_1.getInput)('client_id');
 const MODELER_CLIENT_SECRET = (0, core_1.getInput)('client_secret');
 const getToken = async () => {
@@ -47,7 +47,7 @@ const getToken = async () => {
 };
 const getFileIdsByProjectId = async (token) => {
     try {
-        const urlMilestone = 'https://modeler.cloud.camunda.io/api/beta/files/search';
+        const urlMilestone = 'https://modeler.cloud.camunda.io/api/v1/files/search';
         // TODO: page can not be larger than 50?
         const body = {
             "filter": {
@@ -67,7 +67,7 @@ const getFileIdsByProjectId = async (token) => {
 };
 const setMilestone = async (token, fileId) => {
     try {
-        const urlMilestone = 'https://modeler.cloud.camunda.io/api/beta/milestones';
+        const urlMilestone = 'https://modeler.cloud.camunda.io/api/v1/milestones';
         const body = {
             "name": TAG, "fileId": fileId
         };

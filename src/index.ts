@@ -2,7 +2,7 @@ import {getInput, setFailed} from "@actions/core";
 import axios from "axios";
 
 const TAG = getInput('tag');
-const SOURCE = getInput('source');
+const SOURCE = getInput('project_id');
 const MODELER_CLIENT_ID = getInput('client_id')
 const MODELER_CLIENT_SECRET = getInput('client_secret')
 
@@ -43,7 +43,7 @@ const getToken = async () => {
 const getFileIdsByProjectId = async (token: string) => {
 
     try {
-        const urlMilestone = 'https://modeler.cloud.camunda.io/api/beta/files/search';
+        const urlMilestone = 'https://modeler.cloud.camunda.io/api/v1/files/search';
 
         // TODO: page can not be larger than 50?
         const body = {
@@ -69,7 +69,7 @@ const getFileIdsByProjectId = async (token: string) => {
 const setMilestone = async (token: string, fileId: string) => {
 
     try {
-        const urlMilestone = 'https://modeler.cloud.camunda.io/api/beta/milestones';
+        const urlMilestone = 'https://modeler.cloud.camunda.io/api/v1/milestones';
 
         const body = {
             "name": TAG, "fileId": fileId
