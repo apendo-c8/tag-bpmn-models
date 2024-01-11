@@ -17,7 +17,7 @@ You can simply refer to this GitHub action in any GitHub workflow.:
          - name: Tag BPMN Models
            uses: apendo-c8/tag-bpmn-models@v1
            with:
-             source: 'Project Id'
+             project_id: 'Project Id'
              tag: 'Tag name (${{ github.ref_name }} will reference the latest pushed tag or branch)'
              client_id: 'Camunda Modeler API client id'   
              client_secret: 'Camunda Modeler API client secret'
