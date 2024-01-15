@@ -15,7 +15,7 @@ You can simply refer to this GitHub action in any GitHub workflow.:
 
    ```yaml
          - name: Tag BPMN Models
-           uses: apendo-c8/tag-bpmn-models@v1
+           uses: apendo-c8/tag-bpmn-models@v1.2
            with:
              project_id: 'Project Id'
              tag: 'Tag name (${{ github.ref_name }} will reference the latest pushed tag or branch)'
